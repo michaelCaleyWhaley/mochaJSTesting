@@ -19,6 +19,23 @@ it('Should verify first and last names', () => {
     });
 });
 
+// async tests require the done argument which can be called at the appropriate time
+it('should async add two numers', (done) => {
+    utils.aysncAdd(4, 3, (sum) => {
+        expect(sum).toBe(7).toBeA('number');
+        done();
+    });
+});
+
+// promise
+it('should async check for a string', (done) => {
+    utils.testPromise((message) => {
+        expect(message).toBeA('string');
+        done();
+    });    
+});
+
+
 
 
 it('should add two numbers', () => {
@@ -39,11 +56,11 @@ it('should expect some values', () => {
     // expect({name: 'Michael'}).toBe({name: 'Michael'});
 
     // This test is for loose equality
-    expect({name: 'Michael'}).toEqual({name: 'Michael'});
+    expect({ name: 'Michael' }).toEqual({ name: 'Michael' });
 });
 
 it('should include', () => {
-    expect([2,3,4]).toInclude(2);
+    expect([2, 3, 4]).toInclude(2);
 });
 
 it('should expect some values', () => {
